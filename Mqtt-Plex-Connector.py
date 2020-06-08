@@ -19,7 +19,8 @@ def webhook():
     publish.single(MQTTtopic + '/tags', MQTTtags, hostname=host)
     if '_TAG_9274_' in data['tags']:
         publish.single('masterton2020/latest', MQTTtopic, hostname=host)
-        publish.single('masterton2020/restart', MQTTtopic, hostname=host)
+        if 'report' in data['tags']:
+            publish.single('masterton2020/restart', MQTTtopic, hostname=host)
     return 'OK'
 
 if __name__ == '__main__':
