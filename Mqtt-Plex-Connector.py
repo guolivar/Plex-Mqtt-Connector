@@ -21,19 +21,19 @@ def webhook():
         publish.single('odin-old-firmware', data['devicename'], hostname=host)
     # This is for Masterton2020 (_TAG_9274_)
     if '_TAG_9274_' in data['tags']:
-        publish.single('masterton2020/latest', MQTTtopic, hostname=host)
+        publish.single('masterton2020/' + MQTTtopic, MQTTmessage, hostname=host)
         if 'report' in data['tags']:
             publish.single('masterton2020/restart', data['devicename'], hostname=host)
     # This is for Arrowtown2020 (_TAG_9180_)
     if '_TAG_9180_' in data['tags']:
-        publish.single('arrowtown2020/latest', data['devicename'], hostname=host)
+        publish.single('arrowtown2020/' + MQTTtopic, MQTTmessage, hostname=host)
         if 'report' in data['tags']:
             publish.single('arrowtown2020/restart', data['devicename'], hostname=host)
         if 'fw_update_status_uptodate' in data['tags']:
             publish.single('arrowtown2020/firmwareOK', data['devicename'], hostname=host)
     # This is for Invercargill2020 (_TAG_9286_)
     if '_TAG_9286_' in data['tags']:
-        publish.single('invercargill2020/latest', MQTTtopic, hostname=host)
+        publish.single('invercargill2020/' + MQTTtopic, MQTTmessage, hostname=host)
         if 'report' in data['tags']:
             publish.single('invercargill2020/restart', data['devicename'], hostname=host)
     return 'OK'
