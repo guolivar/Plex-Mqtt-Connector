@@ -31,6 +31,11 @@ def webhook():
             publish.single('arrowtown2020/restart', data['devicename'], hostname=host)
         if 'fw_update_status_uptodate' in data['tags']:
             publish.single('arrowtown2020/firmwareOK', data['devicename'], hostname=host)
+    # This is for Invercargill2020 (_TAG_9286_)
+    if '_TAG_9286_' in data['tags']:
+        publish.single('invercargill2020/latest', MQTTtopic, hostname=host)
+        if 'report' in data['tags']:
+            publish.single('invercargill2020/restart', data['devicename'], hostname=host)
     return 'OK'
 
 if __name__ == '__main__':
