@@ -1,8 +1,8 @@
 # Plex-Mqtt-Connector
+**This fork is customised for a specific application, not, I repeat, NOT for general use out of the box**
+The basic idea is to turn webhooks into items published to a MQTT server.
 
-This connector allows to combine MQTT with the webhooks of the Plex Media Server.
-
-**Please don't forget to set the ip address of your MQTT-Server!!!**
+This specific fork is to support the dataflow of NIWA's low-cost air quality sensor ODIN. If you have questions, get in touch with Gustavo Olivares AT niwa.co.nz
 
 ## Example
 
@@ -16,25 +16,7 @@ You can use this script on your local machine. But this machine has to be turned
 
 Don't forget to install the Python packages and Python itself.
 
-Also you have to install a MQTT-Server on any machine. E. g. OpenHAB is able to work as MQTT-Server.
-
-## FAQ
-
-### Which is the topic for my clients?
-
-Every client has an unique id. You can find this unique id in your Plex Server or the XML of the devices. You can also use an MQTT-Explorer and search for the id after a message was published into a topic.
-
-Every topic starts with plex/ and contains the id of your client. Foreach information (title and and type) a subtopic is used.
-
-The state of your player will be published into the main topic (plex/[playerid]).
-The topic for your title is called plex/[playerid]/title
-The topic for your type is called plex/[playerid]/type
-
-### Where to configure my webhooks?
-
-You need a Plex Pass to configure webhooks on your server.
-
-Every webhook should be send to: http://[IP-ADDRESS]:5000/webhook
+Also you have to install a MQTT-Server on any machine. E. g. Mosquitto
 
 ---
 
