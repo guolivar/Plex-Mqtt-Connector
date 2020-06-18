@@ -1,6 +1,6 @@
 version: '2'
 services:
-  plex-mqtt-connector:
+  plex-webhook-connector:
     build: .
     ports:
       - "5000:5000"
