@@ -15,7 +15,7 @@ def webhook():
     MQTTtopic = data['deviceid']
     MQTTmessage = json.dumps(data['message'],separators=(',', ':'))
     MQTTtags = ','.join(data['tags'])
-    publish.single(MQTTtopic, MQTTmessage, hostname=host)
+    publish.single('all-odin/' + MQTTtopic, MQTTmessage, hostname=host)
     # Units running old firmware
     if '2000' in data['tags']:
         publish.single('odin-old-firmware', data['devicename'], hostname=host)
