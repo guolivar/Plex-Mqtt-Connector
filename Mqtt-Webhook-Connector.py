@@ -37,7 +37,7 @@ def webhook():
         if 'report' in data['tags']:
             publish.single('invercargill2020/restart', data['devicename'], hostname=host)
     # This is for Reefton2020 (_TAG_9650_)
-    if '_TAG_9286_' in data['tags']:
+    if '_TAG_9650_' in data['tags']:
         publish.single('reefton2020/' + MQTTtopic, MQTTmessage, hostname=host)
         if 'report' in data['tags']:
             publish.single('reefton2020/restart', data['devicename'], hostname=host)
