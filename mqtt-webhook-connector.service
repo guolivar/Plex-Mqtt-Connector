@@ -1,0 +1,11 @@
+[Unit]
+Description=Opens a websocket and it moves the POST requests to the MQTT broker in the same system
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3.7 /home/centos/Plex-Mqtt-Connector/Mqtt-Webhook-Connector.py
+TimeoutStartSec=0
+
+[Install]
+WantedBy=default.target
