@@ -9,7 +9,7 @@ api = Api(app)
 
 host = 'dusty-acron.dyndns.org'
 
-@app.route('/odinwebhook', methods=['POST'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
     data = request.json
     MQTTtopic = data['deviceid']
