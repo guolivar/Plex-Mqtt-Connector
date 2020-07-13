@@ -7,7 +7,7 @@ import paho.mqtt.publish as publish
 app = Flask(__name__)
 api = Api(app)
 
-host = 'dusty-acron.dyndns.org'
+host = 'localhost'
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
